@@ -8,6 +8,8 @@ import com.devsuperior.dscommerce.dto.ClientDTO;
 import com.devsuperior.dscommerce.dto.OrderItemDTO;
 import com.devsuperior.dscommerce.dto.PaymentDTO;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public class OrderDTO {
 
 	private Long id;
@@ -20,6 +22,7 @@ public class OrderDTO {
 
 	private PaymentDTO payment;
 
+	@NotEmpty(message = "Deve conter ao menos um item.")
 	private List<OrderItemDTO> items = new ArrayList<>();
 
 	public OrderDTO(Long id, Instant moment, OrderStatus status, ClientDTO client, PaymentDTO payment) {
